@@ -1,0 +1,26 @@
+---
+layout: post
+category : blog
+tags : [android]
+title: Android Application Annoyances, January 2011 edition
+---
+
+
+<p>We've had over a year to learn how to write Android apps correctly. This time last year, everyone was forgiven for having an ugly app because there weren't that many apps in the Android Market. With choice in the Market, it's important that developers not drive a wedge between themselves and their users.</p>
+<ol>
+<li><strong>Activity-based apps with 'exit' buttons/menu items</strong>. If an app doesn't have a service associated with it, then it doesn't need an exit button. Period. The scheduler will kill the app when it deems it necessary. Just play nice by the lifecycle rules and the app will go away when Android is good and ready. If an app is structured in a way that the user gets to a point and are asked if they want to restart or exit, the developer needs to redesign the way their app flows.
+</li>
+<li><strong>Apps that make users wait</strong>. I'm not talking about apps that take time, I'm talking about the <em>wait/force close</em> alert. This means the app isn't managing the clock. A lot of the processing that's going on should probably go into a thread that can be managed correctly. There was an Android developer blog post on this, but I'm having trouble finding it. Or perhaps it was in Reto Meier's book. I'll have to track this down.</li>
+<li><strong>Not handling the lifecycle correctly</strong>. Every Android book written and the Android developer site has a graphic showing the lifecycle calls. It's not that difficult to support those dozen calls. If an app can't save state on rotation and restore it, it's not Android's fault, it's the developers.</li>
+<li><strong>Portrait-only UI</strong>. We've had keyboards and landscape UIs since the original G1, there's no excuse for an app only working in portrait. Especially if it has forms. when I rotate the phone and pop out the keyboard, the form should rotate.</li>
+<li><strong>Ads that get in the way of the action</strong>. If an app is really something I want, I would prefer to shell out $2-$3 for it. But, I understand that option isn't open to everyone, so ads are fine. If an app is going to have an ads-only model, at least structure the layouts so the ads don't intrude with the action. Sure, the user needs to see the ad so the developer can get click-thru revenue. But, if the users gets so annoyed with the ads that they uninstall the app, then what's the point? <br/> Two cases:
+<ul>
+<li><em>Mahjong by MagmaMobile</em>. I loved the gameplay and I would've gladly paid several dollars for it. But the ads interfered too much and I uninstalled it.</li>
+<li><em>Angry Birds</em>. Arguably the most successful mobile app ever. But, some levels are made much harder by the ad in the upper right corner. This becomes more evident in later levels where the "boomerang bird" is used. I won't uninstall Angry Birds, obviously, but I might consider finding a hack to let me disable the ads. I think I speak for most of the world when I say I'd pay $4 for this game to be ad-free on Android.</li>
+</ul>
+</li>
+<li><strong>Third-party payment options</strong>. I understand the Android Market doesn't work for everyone. Products where a web or desktop component is required are obvious examples, but reliable payment options have existed there for years. There are countries where paid apps don't work and I'm not denying anyone's right to be paid. <b>BUT</b>, if an app is a device-only app and the developer is targeting the countries that are already in the paid Android Market, then don't make me go off to a third-party site to pay. GetJar and other distribution channels are fine, but don't put a crippled version in the Android Market and make me enter a 20 digit code to unlock it. Because I won't.</li>
+<li><strong>Tying apps to specific phones.</strong> Developers who came from older mobile OSes think the right way to handle piracy is to force the user to send them the MEID or other unique characteristic of the phone to create an unlock code. Yes, Palm users knew how to find their hotsync ID and were accustomed to entering hex digits. Android is a much more consumer-oriented OS, not exclusive to nerds, suits, and early-adopters. The real drawback to this practice is when I switch phones, I have to buy the app again. Guess what? I won't buy it the first time.</li>
+<li><strong>Android Market.</strong> OK, this isn't a third-party development issue, but it's still an annoyance. I'm sick of using my phone to search the Android Market. I want better browsing abilities and I want to manage my device account from the desktop browser. This should've been released when Froyo became available and it's embarrassing that it's still missing.</li>
+</ol>
+<p>I've spent quite a bit of time recently looking at third-party apps and these seem to be some of the most egregious problems that persist. 2011 is shaping up to be an exciting time for Android developers, so maybe in 2012 we will have few of these annoyances.</p>

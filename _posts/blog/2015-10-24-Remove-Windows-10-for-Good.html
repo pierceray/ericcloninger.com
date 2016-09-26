@@ -1,0 +1,141 @@
+---
+layout: post
+category : blog
+tags : [computers, internet, windows]
+title: Remove Windows 10 Notifications for Good
+
+---
+
+<p>I've been getting the "Update to Windows 10" messages for months and I'm tired of seeing them.
+I have several legacy software packages that I still use quite often on Windows 7 and I'm not certain 
+they will work with Windows 10. I also have older GPS devices that may or may not have Windows 10
+drivers. Finally, I've been reading about <a href="http://blogs.wsj.com/personal-technology/2015/08/05/windows-10-isnt-spyware-but-it-wants-your-data/" target="_blank">corporate spyware in Windows 10</a> that tells Microsoft what I'm 
+up to. None of those things makes me particularly excited about upgrading.
+
+<p>About a month ago, I thought I had configured my PC to not upgrade to Windows 10 but apparently I 
+didn't go through all the steps to properly eradicate it. If you don't get rid of all traces, they can 
+reappear. So, I'm going through this process again and getting rid of the traces. I'm going to document 
+the steps I use for others, giving credit where credit is due.
+
+<p>This guide is for someone running the "non-consumer" versions of Windows 7: Pro, Enterprise, and
+Ultimate. You must have "Local Administrator" privilege and your computer should not be on a domain,
+managed as part of a Group Policy program (i.e. a company laptop).
+
+<p>One final note before we start... These instructions aren't for casual users--they are for people
+who are familiar with Windows administrative tools. If these instructions seem unintelligible, you 
+should not undertake the process. Let someone who knows how these things work do it. And before you 
+ask, <i>No, I wont do this for you.</i> :-)
+
+<h4>Getting Started</h4>
+
+<p>Before you can go through these steps, you'll need a script for taking ownership of system files. 
+Microsoft installs some files and gives them elevated access controls so a standard user can't remove 
+them. The script you need is called "Take Ownership" and it adds a registry entry so that you can take 
+ownership of files from the Windows Explorer. Casual users should not install registry tweaks unless 
+there's a need, but this one is needed for this use case and there's an uninstall script you can use 
+after you're done.
+
+<p><a href="{{ BASE_PATH }}/assets/images{{ page.id }}/shot1.png" target=_blank" target="_blank">
+<img style="float:left; margin:0 10px 10px 0;cursor:pointer; cursor:hand;width: 400px; " 
+src="{{ BASE_PATH }}/assets/images{{ page.id }}/shot1.png" border="0" alt="" /></a>
+
+The script is located <a href="{{ BASE_PATH }}/assets/images{{ page.id }}/Add-Take-Ownership-Option.zip" target="_blank">here</a> or you can download it 
+<a href="http://www.askvg.com/add-take-ownership-option-in-file-folder-context-menu-in-windows-vista/">from the original source</a>.
+Unzip the archive and double click on <i>Take Ownership - Install.reg</i>. You will be given a 
+chance to change your mind with a dialog box asking if you're sure you want to install the
+registry tweak.
+
+<p>The next thing you will need to do is log out of your user account and log into the computer
+administrator account. I could not make this process work as my regular user. If you are an
+administrator with your regular account (bad idea, BTW), you may still need to enable the system
+administrator account to gain elevated administrator privileges. 
+
+<p>If your computer doesn't seem to have an Administrator account, you may need to
+activate it. There's a <a href="http://www.sevenforums.com/tutorials/507-built-administrator-account-enable-disable.html" target="_blank">good article on this site</a>
+but the short answer is you'll need to start the Local Users control panel (C:\Windows\System32\lusrmgr.msc)
+and enable Administrator. Also, don't forget to give Administrator a strong password.
+
+<h4>Windows Update</h4>
+
+<p>We need to uninstall Windows Update number 3035583. This is the thing that sticks the reminder 
+on your toolbar as well as a couple of other artifacts. Uninstalling this update is only the first
+step because the uninstall doesn't remove the artifacts.
+
+I'm going to link to a <a href="http://www.howtogeek.com/218856/how-do-you-disable-the-get-windows-10-icon-shown-in-the-notification-tray/" target="_blank">good article on the site HowToGeek</a> 
+on uninstalling this update. They have better directions than I could provide. But, for posterity's 
+sake, in case that article goes away
+<ol>
+<li>Launch Windows Update
+<li>Locate Installed Updates
+<li>Scroll through the list and find number 3035583. Don't use the search box as that doesn't seem to work. 
+This item is located in "Updates for Microsoft Windows" which is after the numerous security updates and 
+updates for Microsoft Office and the security updates for Microsoft Office...
+<li>Choose to uninstall the update.
+<li>DO NOT RESTART WINDOWS
+<li>Launch Task Manager (right click on taskbar) and make sure that the program named "GWX.exe" is not running. If it is running, right click on it and choose "End Process".
+</ol>
+
+<h4>Removing Artifacts of Update 3035583</h4>
+
+<p>Now you can remove the residual files left by the Windows Update. If you restart your computer with these
+files in place, Windows will just reinstall them or sometime the next day...
+
+<p>Launch Windows Explorer and navigate to your Windows directory. In this directory is 'SysWOW64'. Go into
+this folder and find a directory named GWX. Right click on this folder and choose the "Take Ownership"
+option that is installed by the registry tweak. A Command prompt window will appear for a few seconds and
+then disappear. If no problems occurred, you should be able to delete the GWX folder. Empty the trash can when it finishes.
+
+<p>Now, navigate to Windows\System32\Tasks\Microsoft\Windows\Setup. In this folder you should see a directory
+for tasks to update GWX. This is what causes that popup to reappear over and over. Using the "Take Ownership"
+item again, take ownership of the GWX directory and then delete the contents. Empty the trash can when it finishes.
+
+<h4>Prevent GWX from Returning</h4>
+
+<p>I don't want to keep having to go through this process, but I may find that the GWX virus keeps showing up.
+We will need to remain vigilant about this. It seems that Microsoft doesn't really hide or ignore this
+particular update and it comes across as an important update every time. If you have automatic updates, you 
+will need to disable them and manually choose which ones to install. 
+
+<p>The HowToGeek article mentions adding a registry entry to disable updates of GWX. I've added this entry
+and it doesn't seem to work. But, if you'd like to do this, <a href="{{ BASE_PATH }}/assets/images{{ page.id }}/DisableGWX.reg" target="_blank">here is a Registry Tweak</a> for a shortcut.
+
+<h4>Confirmation</h4>
+
+<p>Now you can reboot your PC. After rebooting, log back in as the administrator account. Let all the services
+start up (i.e. you stop hearing the hard drive grinding). 
+
+<ul>
+<li>Confirm that the "Get Windows 10" popup doesn't show in the notification panel. 
+<li>Start Task Manager and ensure that GWX.exe isn't running. 
+<li>From the Start Menu search for "Task Scheduler" and confirm that there are no GWX items in Microsoft->Windows->Setup
+</ul>
+
+<p>Now, launch Windows Update. Let Windows figure out which updates are available. In the list, you will
+see that 3035583 is there and it's checked by default. Uncheck the update. Then, right click on the update and
+select "Hide Update" or "Ignore Update". Install any other updates.
+
+<p>Reboot your PC one more time. Again, login and let all the system services load. Wait a few minutes and then
+open Windows Update again. Hopefully, the update for 3035583 is hidden and you won't be constantly reminded to update.
+
+<h4>Wrap up</h4>
+
+<p>To do this exercise, you lowered your security. You need to undo these changes so your PC isn't vulnerable.
+
+<ol>
+<li>Remove the "Take Ownership" registry tweak by clicking the uninstall script that came in the ZIP file
+<li>Make sure your local administrator account is either disabled or has a strong password
+<li>Make sure your regular user account is not a local administrator
+</ol>
+
+Good luck. Let me know if this works for you by tweeting to <a href="http://www.twitter.com/ericc">@ericc</a>.
+
+<h4>Credits</h4>
+
+<p>Thanks to these sites for their help and insight in getting this done.
+<ul>
+<li><a href="http://www.askvg.com/add-take-ownership-option-in-file-folder-context-menu-in-windows-vista/" target="_blank">AskVG</a>
+
+<li><a href="http://www.howtogeek.com/218856/how-do-you-disable-the-get-windows-10-icon-shown-in-the-notification-tray/" target="_blank">HowToGeek</a>
+
+<li><a href="http://www.sevenforums.com/tutorials/507-built-administrator-account-enable-disable.html" target="_blank">7Forums</a>
+</ul>

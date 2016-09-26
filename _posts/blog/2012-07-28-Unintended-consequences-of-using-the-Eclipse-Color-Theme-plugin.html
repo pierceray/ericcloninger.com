@@ -1,0 +1,15 @@
+---
+layout: post
+category : blog
+tags : [computers]
+title: Unintended consequences of using the Eclipse Color Theme plugin
+---
+
+
+<p>Eclipse Juno has been out for a month and we've been building and testing a lot of things with it. The latest version of MOTODEV Studio is based on Juno, which uses Eclipse 4.2. </p>
+<p>e4 has a lot of new stuff, including the ability to style the layouts, which is pretty exciting for people who want to do that sort of thing. I wanted to understand it better, so I've spent some time playing with how Eclipse looks. One of the ways to change appearance is the <a href="http://eclipsecolorthemes.org/" target="_blank">Eclipse Color Theme</a> plugin. This is a nice plugin and the guys who work on it have created an active community around their work. I played with it for a day and then moved on.</p>
+<p>Things have quieted down a bit and I am ready to work on a new Android app that I've been thinking about. It's a chance to learn fragments and something I might use just for fun. I created a new project and mirrored it on my github repo. Then, I started to tweak the manifest settings for the project. When I clicked on the XML file in Eclipse, I got a shock&ndash;all the text was on a black background with barely visible text and strange keyword highlighting. I forgot I had used my personal development workspace when I was playing with the Color Themes plugin. I had uninstalled the plugin, but the settings remained. Every text editor came up in colors and styles that are not usable for daily work. I tried a different workspace and created a new test workspace and they weren't affected.</p>
+<p><strong>Argh.</strong></p>
+<p>I did not want to just throw away this workspace as it was configured to work with my github account using eGit and the Mylyn views were working. Creating a new workspace with the library projects and all the settings would take a good 45 minutes. I dug around in the hidden settings folder for the workspace. If you've never had to dig around in the .metadata folder, then I envy you. It's a mess of XML, .properties files, and assorted dross. I spent 20 minutes rooting around and gave up.</p>
+<p>Resigned to creating a new workspace, I tried one last-ditch effort. I reinstalled the Color Theme plugins from <a href="http://marketplace.eclipse.org/" target="_blank">Eclipse Marketplace</a> to see if they would restore the settings. It turns out, they did. I was able to set everything back with the "default" button in the Color Theme plugin and then uninstall it again. It would be nice if the plugin could've detected it was being uninstalled and give me a chance to undo the settings it had done. I'm not sure if this is built into the Eclipse workflows or not. I'll have to start an inquiry with the people who know this stuff better than I.</p>
+<p>But first, time to create my next great app&hellip;.</p>

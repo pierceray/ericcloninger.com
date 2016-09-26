@@ -1,0 +1,50 @@
+---
+layout: post
+category : techblog
+tags : [motodev, android]
+title: MOTODEV Studio 4.0 and the ADT 20 plugins
+---
+
+
+		<p style="border-style:solid;border-color:#c0c0c0;padding:10px;background-color:#e0e0e0"><strong>NOTE: </strong>This blog post was originally hosted on Motorola's MOTODEV web site. That site was decommissioned in 2012. I've made every attempt to preserve blog posts and accompanying forum posts with their original content. Many web links are no longer valid, so they have been removed and replaced with <em style="color:#0000c0;">emphasized</em> text.
+		<h4>by Eric Cloninger (EricC)</h4>
+
+		<p>Hello everyone,</p>
+		<p>Two weeks ago at Google I/O, we saw the release of a new Android version and new tools for the SDK. These tools had been anticipated for some time and I wanted to update you on where we stand with MOTODEV Studio.</p>
+		<p>When we announced MOTODEV Studio 4.0 in May, I pointed out 
+		<em style="color:#0000c0;">in this blog post</em>
+		that we were splitting the concept of the MOTODEV tools into 2 pieces. The standalone product with the installer was tightly integrated with the ADT plugins and requires work on our part whenever ADT is updated. At the same time, we also announced a new "core plugins" feature that can be installed into Eclipse that has no dependencies on ADT whatsoever. While the look of the two versions is different, most of the 
+		<em style="color:#0000c0;">functionality of the full product exists in the core plugins</em>
+		. The full product is meant to be stable, but would only be updated on our quarterly schedule. When new versions of ADT come out, they may or may not work with the existing full MOTODEV Studio but they should work with Eclipse and the MOTODEV core plugins.</p>
+		<p>For this reason, <u>we locked MOTODEV Studio 4.0 to ADT 18 in order to prevent updates that would result in a breakage due to API changes beyond our control</u>. Unfortunately, the SDK Manager allowed developers to update their SDK tools and SDK 20 has problems with ADT 18. We're working on a new version of MOTODEV Studio that has ADT 20 (or 20.0.1) already built-in that works with SDK tools 20. I anticipate you will have access to it in a few weeks. Until that time, <strong>you should not update the SDK tools or attempt to manually install ADT 20 into MOTODEV Studio</strong>.</p>
+		<p>If you are using the MOTODEV core plugins with Eclipse, you can use ADT 20 and SDK Tools 20.</p>
+		<p><font size="2"><strong>Roll back SDK tools</strong></font></p>
+		<p>If you've already updated to SDK Tools 20 and you're using the installed MOTODEV Studio, there's a good chance that things will not work correctly. Especially when debugging with the emulator. If you want to continue using the MOTODEV Studio tools to develop for Ice Cream Sandwich and earlier, you can download the older SDK tools version 19 at 
+		<a target="_self" href="http://dl-ssl.google.com/android/repository/tools_r19-windows.zip" rel="nofollow">http://dl-ssl.google.com/android/repository/tools_r19-windows.zip</a>
+		. 
+		<a target="_self" href="http://dl-ssl.google.com/android/repository/tools_r19-macosx.zip" rel="nofollow">Mac OSX</a>
+		and 
+		<a target="_self" href="http://dl-ssl.google.com/android/repository/tools_r19-linux.zip" rel="nofollow">Linux</a>
+		users will have slightly different file names.</p>
+		<p>Using the links above as a template, you can download older versions of the SDK by providing a different release number. The same formula works for the ADT plugins, which can be found at 
+		<a target="_self" href="http://dl.google.com/android/ADT-18.0.0.zip" rel="nofollow">http://dl.google.com/android/ADT-18.0.0.zip</a>
+		.</p>
+		<p><font size="2"><strong>Using Eclipse</strong></font></p>
+		<p>For developers who need to target Jelly Bean before MOTODEV Studio 4.1 is released, the best solution is to use a clean installation of Eclipse, such as the new 
+		<a target="_blank" href="http://www.eclipse.org/downloads/" rel="nofollow">Eclipse for Mobile Developers</a>
+		package and update your tools to the latest release (version 20 at this time). Unzip the Eclipse package into a convenient location on your development machine.</p><center>
+		<img title="Screenshot - 7_13_2012 , 11_21_47 AM.png" alt="Screenshot - 7_13_2012 , 11_21_47 AM.png" align="center" src="{{ BASE_PATH }}/assets/images{{ page.id }}/original(1).jpg" border="0"></center>
+		<p>Once you have Eclipse downloaded and installed, launch the IDE and use the Marketplace client (Help&gt;Eclipse Marketplace) to locate either the 
+		<a target="_blank" href="http://marketplace.eclipse.org/content/android-development-tools-eclipse" rel="nofollow">Android Development Tools</a>
+		or the 
+		<a target="_blank" href="http://marketplace.eclipse.org/content/motodev-studio-android" rel="nofollow">MOTODEV Core Plugins</a>
+		. You can also install from the web link by dragging the button labeled "Install" onto your running version of Eclipse. The MOTODEV core plugins from the Eclipse Marketplace are linked to depend on ADT, so if you want to install both, just use the MOTODEV link.</p><center>
+		<img title="Screenshot - 7_13_2012 , 12_40_44 PM.png" alt="Screenshot - 7_13_2012 , 12_40_44 PM.png" align="center" border="0" src="{{ BASE_PATH }}/assets/images{{ page.id }}/original(2).jpg"> </center>
+		<p>If you're more comfortable with the Eclipse Update Manager rather than the Marketplace Client, you can install the MOTODEV core plugins from our site as well. Use Help&gt;Install New Software and create a new update site whose link is 
+		<em style="color:#0000c0;">https://studio-android.motodevupdate.com/android/4<wbr>.0/basic</em>
+		.</p>
+		<p><br>If you find any problems using MOTODEV Studio with ADT 18 or the core plugins with ADT 20, please let us know on the 
+		<em style="color:#0000c0;">discussion boards</em>
+		.</p>
+		<p>Thank you for using MOTODEV Studio</p>
+		<p>Eric</p>
