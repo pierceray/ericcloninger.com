@@ -1,0 +1,40 @@
+---
+layout: post
+category : blog
+tags : [internet]
+title: Moving to Amazon S3
+
+---
+
+<p>Last week I received an invoice from my web host provider, HostMonster. I've used
+HostMonster since 2009 and they've provided an acceptable level of service. In addition
+to the web hosting, I bought half a dozen domains through their eCommerce site and 
+several of them are still being renewed. I was spending $200 a year with them between
+the hosting and the domain registrations.
+
+<!--more-->
+
+<p>When I started with HostMonster, I got a discounted first year. Seems it was $3.99 per
+month. The next year, the full price of $6.99 kicked in. Since then, every year the cost
+of my hosting package has increased a dollar or two. This year, it's $11.99 per month
+so my invoice is almost $150. This is for hosting less than 50MB of static content across
+three domains.
+
+<p>I decided I didn't need to spend $150 for this service and so I asked around on 
+Twitter for ideas. The best idea, after a little research, is to use Amazon's S3 hosting.
+The first year hosting is free, but I will have to pay for DNS. I used the logs from my
+hosting company to determine that I transfer less than 500MB per month from my sites. I 
+multiplied this by 10 and plugged the formula into Amazon's calculator. If rates hold,
+hosting will cost me a couple dollars per month after the free year is over.
+
+<p>On a production side, I've spent a couple evenings setting up the S3 "buckets" while 
+watching baseball playoffs. I also took this opportunity to update the Jekyll and Bootstrap 
+frameworks that power this site. I've pulled in Google Analytics so I can get some idea
+of who is visiting and what they're looking at. The next steps, after I get the content
+stabilized on S3 is to point my domain names at the S3 buckets. That should all happen by
+the end of the week or early next. These are vanity sites, so I don't mind a few days of
+downtime.
+
+<p>Unlike my previous change of dumping DirecTV, I don't bear HostMonster any ill will.
+They've been a good host, but when I put a pencil to the cost vs. benefit of their service
+they don't stack up.

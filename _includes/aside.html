@@ -6,24 +6,42 @@
 
   <div class="cover">
 
-    <div class="cover-text">
-      <div class="heading">
+    <div>
 
+	<div>
+			{% if page.title %}
+		  <p class="sidebar-title">
+			  {{ page.title }}
+		  </p>
+			{% endif %}
+
+			{% if page.summary %}
+		  <p class="sidebar-summary">
+			  {{ page.summary }}
+		  </p>
+			{% endif %}
+	</div>
+      <div class="heading">
         {% if page.tags %}
+        	<p class="cover-text">
           {% for tag in page.tags %}
             <a href="/posts/#{{ tag | downcase }}">{{ tag | downcase }}</a>
           {% endfor %}
-        {% else %}
-          {{ page.title }}
+          </p>
         {% endif %}
 
       </div>
 
-      <p>
-        {% if page.summary %}
-          {{ page.summary }}
-        {% endif %}
-      </p>
+     {% if page.previous.url or page.next.url %}
+<div class="sidebar-prev-next">
+ 		{% if page.previous.url %}
+		  <p class="sidebar-alignleft"><a href="{{ page.previous.url }}" title="{{ page.previous.title }}"><span class="link-to-post__prev-sidebar">&nbsp;Previous&nbsp;</span></a></p>
+		{% endif %}
+		{% if page.next.url %}
+		  <p class="sidebar-alignright"><a href="{{ page.next.url }}" title="{{ page.next.title }}"><span class="link-to-post__next-sidebar">&nbsp;Next</span></a></p>
+		{% endif %}
+  </div>
+    {% endif %}
 
     </div>
 

@@ -8,8 +8,6 @@ a {
   &:active { text-decoration: none; }
 }
 
-
-
 /*
 * Toggle Button
 * ========================================================================== */
@@ -170,7 +168,7 @@ a {
 }
 
 .cover-text {
-  color: #fff;
+  color: #ddd;
   text-shadow: 2px 0 5px #333;
   position: absolute;
   bottom: 20%;
@@ -200,6 +198,45 @@ a {
 }
 .alignright {
 	float: right;
+}
+
+.sidebar-alignleft {
+	float: left;
+	color: #eee;
+}
+.sidebar-alignright {
+	float: right;
+}
+
+.prev-next{
+	width: 100%;
+}
+
+.sidebar-prev-next{
+	position:fixed;
+	bottom: 0px;
+}
+
+
+.sidebar-title
+{
+  height: 3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-weight: 150;
+  font-family: "Roboto Condensed", sans-serif;
+  padding: 0 1rem;
+  text-decoration: none;
+  color: #eee;
+}
+
+.sidebar-summary
+{
+  height: 14px;
+  font: normal 17px/1.5 'Fauna One', "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  color: #ccc;
 }
 
 /*
@@ -335,6 +372,14 @@ article {
   &__prev, &__next {
     font-size: .8em;
     color: #333;
+    margin: 10px 0;
+  }
+  
+  &__prev-sidebar, &__next-sidebar {
+  font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1em;
+    color: #eee;
     margin: 10px 0;
   }
   
