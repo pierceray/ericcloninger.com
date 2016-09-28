@@ -7,31 +7,32 @@ crawlertitle: "Eric Cloninger's blog"
 active: blog
 ---
 
-<div>
-{% for tag in site.tags %}{% assign t = tag | first %} <a class="blog-navigation" href="#{{ t | downcase }}">{{ t | capitalize }}</a> &middot;{% endfor %}
-</div>
+{% for post in site.posts  %}
+{% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+{% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
 
-{% for tag in site.tags %}
-  {% assign t = tag | first %}
-  {% assign posts = tag | last %}
-
-<h4 class="category-key" id="{{ t | downcase }}">{{ t | capitalize }}</h4>
-
+{% if forloop.first %}
+<h2 id="{{ this_year }}-ref">{{this_year}}</h2>
 <ul class="year">
-  {% for post in posts %}
-    {% if post.tags contains t %}
-      <li>
-        {% if post.lastmod %}
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          <span class="date">{{ post.lastmod | date: "%d-%m-%Y"  }}</span>
-        {% else %}
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          <span class="date">{{ post.date | date: "%d-%m-%Y"  }}</span>
-        {% endif %}
-      </li>
-    {% endif %}
-  {% endfor %}
-</ul>
+{% endif %}
 
+<li><a href="{{ post.url }}">{{ post.title }}</a><span class="date">
+:{% for tag in post.tags %}
+{{ tag }} :
+{% endfor %}
+
+</span></li>
+
+{% if forloop.last %}
+</ul>
+{% else %}
+
+{% if this_year != next_year %}
+</ul>
+<h2 id="{{ next_year }}-ref">{{next_year}}</h2>
+<ul class="year">
+{% endif %}
+
+{% endif %}
 
 {% endfor %}

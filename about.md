@@ -21,7 +21,7 @@ S3 hosting service.
 
 All the photos on this site are original compositions. I shoot primarily with Pentax
 digital camera equipment with a variety of lenses and lighting adapters. Like most
-photographers, I'm not satisfied with any of my equipment.
+photographers, I'm always longing for newer and better equipment.
 
 This site links to an interactive version of my resume that was built using
 Bootstrap 3. You can access [that site here](http://portfolio.ericcloninger.com) or by
