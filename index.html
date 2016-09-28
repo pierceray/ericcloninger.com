@@ -4,24 +4,10 @@ layout: default
 crawlertitle: "EricCloninger.com"
 ---
 
-  <h3>Welcome to EricCloninger.com</h3>
-  <p>This site is where I keep my personal blog posts as well as a historical record of the 
-  blog posts, white papers, and presentations that I've created for my employers for the 
-  last 15 years (or so).
-  <p>I've begun hosting my own photos on this site as well. For many years, I kept photos
-  on a variety of services like Flickr, SmugMug, and Picasa but I don't need anything 
-  fancy--just a place where visitors can see my photos.
-  <p>This site also contains an interactive version of my resume that was built using
-  Bootstrap 3. You can access that site <a href="resume.html">by clicking here</a> or by
-  using the navigation bar at the top. If you are looking for a printable copy of my
-  resume, you can <a href="{{ BASE_PATH }}/resume/Eric_Cloninger_Resume.pdf" target="_blank">
-  find it here</a>.
-  <p>Thank you for stopping by. 
-  <h4>-E</h4>
-
 {% for post in site.posts limit: 5 %}
   <article class="index-page">
     <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <h6>{{ post.date | date: "%m-%d-%Y"  }}</h6>
     {{ post.excerpt }}
   </article>
 {% endfor %}

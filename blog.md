@@ -1,18 +1,21 @@
 ---
-bg: "tag.jpg"
+bg: "IMGP8137.jpg"
 layout: page
-permalink: /posts/
-title: "Archive"
-crawlertitle: "All articles"
-summary: "Posts about jekyll"
-active: archive
+permalink: /blog/
+title: "Blog"
+crawlertitle: "Eric Cloninger's blog"
+active: blog
 ---
+
+<div>
+{% for tag in site.tags %}{% assign t = tag | first %} <a class="blog-navigation" href="#{{ t | downcase }}">{{ t | capitalize }}</a> &middot;{% endfor %}
+</div>
 
 {% for tag in site.tags %}
   {% assign t = tag | first %}
   {% assign posts = tag | last %}
 
-<h2 class="category-key" id="{{ t | downcase }}">{{ t | capitalize }}</h2>
+<h4 class="category-key" id="{{ t | downcase }}">{{ t | capitalize }}</h4>
 
 <ul class="year">
   {% for post in posts %}

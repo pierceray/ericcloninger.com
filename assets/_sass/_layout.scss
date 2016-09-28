@@ -81,7 +81,16 @@ a {
   border-bottom: 1px solid #ddd;
 }
 
-
+.blog-navigation
+{
+  height: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-weight: 150;
+  font-family: "Roboto Condensed", sans-serif;
+  padding: 0 1rem;
+  text-decoration: none;
+}
 
 /*
 * Header Navigation
@@ -192,7 +201,7 @@ a {
 * Article
 * ========================================================================== */
 main {
-  padding-top: 3em;
+  padding-top: 1em;
 }
 
 .index-page {
