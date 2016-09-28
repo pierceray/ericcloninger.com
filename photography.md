@@ -21,4 +21,4 @@ If you see a photo you like and want to use it in a commercial setting, contact 
 version licensed and produced with dimensions and quality for your need. I will not provide 
 a photo for commercial use without a fee.
 
-**Visit [my photo gallery](http://photo.ericcloninger.com).**
+**Visit [my photo gallery](http://photo.ericcloninger.com){:target="_blank"}.**

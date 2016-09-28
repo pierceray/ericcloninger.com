@@ -10,7 +10,7 @@ active: resume
 Here you are! 
 
 Perhaps you have my resume in hand and you've Googled me. Or you saw a link
-to my **[online resume](http://portfolio.ericcloninger.com)** and you thought you'd try to 
+to my **[online resume](http://portfolio.ericcloninger.com){:target="_blank"}** and you thought you'd try to 
 figure out who the person behind the resume is. Perhaps you found my site by mistake and
 you're just clicking links. It doesn't matter, I'm here to talk about me.
 
@@ -43,3 +43,4 @@ discuss the merits and problems with each.
 I took a sabbatical from work in early 2016 after my wife passed away. I used the time to grieve
 and help my children with their own grieving. As of Fall 2016, I'm ready to look for something
 new and interesting.
+
