@@ -18,17 +18,16 @@ layout: default
 
     {{ content }}
 
+  </div>
+
+  <div class="prev-next">
     {% if page.previous.url or page.next.url %}
 <hr/>
 		{% if page.previous.url %}
-		  <a href="{{ page.previous.url }}" title="{{ page.previous.title }}">
-			<span class="link-to-post__prev">&nbsp;Previous&nbsp;&#10535;</span>
-		  </a>
+		  <p class="alignleft"><a href="{{ page.previous.url }}" title="{{ page.previous.title }}"><span class="link-to-post__prev">&nbsp;Previous&nbsp;</span></a></p>
 		{% endif %}
 		{% if page.next.url %}
-		  <a href="{{ page.next.url }}" title="{{ page.next.title }}">
-			<span class="link-to-post__next">&nbsp;Next</span>
-		  </a>
+		  <p class="alignright"><a href="{{ page.next.url }}" title="{{ page.next.title }}"><span class="link-to-post__next">&nbsp;Next</span></a></p>
 		{% endif %}
     {% endif %}
 
